@@ -10,6 +10,3 @@ __pycache__/
 
 # Docker-related files (optional)
 *.log
-
-# Python module files
-**/__init__.py
