@@ -1,0 +1,34 @@
+# FastAPI framework & ASGI server
+fastapi[all]        # Includes Starlette, Uvicorn, Pydantic, and essential dependencies
+uvicorn[standard]   # ASGI server with logging & autoreload
+
+# Database-related dependencies
+asyncpg             # PostgreSQL async driver
+sqlalchemy          # ORM for handling DB queries
+alembic             # DB migrations
+
+# Caching dependencies
+redis               # Redis driver for caching
+aioredis            # Async Redis client
+
+# Machine Learning 
+numpy
+pandas
+torch               # PyTorch for deep learning models
+transformers        # Hugging Face Transformers (for NLP-based recommendations)
+opencv-python       # OpenCV (if you're using image analysis for posters)
+scikit-learn        # ML algorithms
+
+# Other utilities
+python-dotenv       # Load environment variables from .env
+loguru              # Better logging
+requests            # HTTP requests
+httpx               # Async HTTP client
+
+# Docker SDK (for container interactions if needed)
+docker              # Python Docker SDK
+
+# Testing dependencies 
+pytest              # Testing framework
+pytest-asyncio      # Async support for pytest
+httpx               # API request testing

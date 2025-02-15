@@ -1,4 +1,7 @@
-import docker
+from fastapi import FastAPI
 
-client = docker.from_env()
-print(client.version())
+app = FastAPI()
+
+@app.get("/")
+async def read_root():
+    return {"message" : "Movie Recommendation App is running!" }
