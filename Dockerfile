@@ -1,17 +1,23 @@
-# Base Python image
-FROM python:3.11.9
+# Base Python image (slim version)
+FROM python:3.11.9-slim
 
 # Set working directory inside the container
-WORKDIR /backend
+WORKDIR /movie-recommender
 
-# Copy dependency file
-COPY requirements.txt .
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    libopencv-dev \
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install dependencies
+# Copy the requirement file (without torch and scikit-learn)
+COPY requirements.txt /movie-recommender/
+
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy FastAPI backend
-COPY . .
+# Copy .env and backend code
+COPY . /movie-recommender/
 
 # Expose FastAPI port
 EXPOSE 8000

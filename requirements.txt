@@ -6,18 +6,11 @@ uvicorn[standard]   # ASGI server with logging & autoreload
 asyncpg             # PostgreSQL async driver
 sqlalchemy          # ORM for handling DB queries
 alembic             # DB migrations
+psycopg             # PostgreSQL driver
 
 # Caching dependencies
 redis               # Redis driver for caching
 aioredis            # Async Redis client
-
-# Machine Learning 
-numpy
-pandas
-torch               # PyTorch for deep learning models
-transformers        # Hugging Face Transformers (for NLP-based recommendations)
-opencv-python       # OpenCV (if you're using image analysis for posters)
-scikit-learn        # ML algorithms
 
 # Other utilities
 python-dotenv       # Load environment variables from .env

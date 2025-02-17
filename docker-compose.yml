@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres
+    container_name: movie-recommender-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pgadmin4
+      POSTGRES_DB: movie-recommender
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: .
+    depends_on:
+      - db
+    container_name: movie-recommender-api
+    environment:
+      DATABASE_URL: "postgresql+psycopg://postgres:pgadmin4@db:5432/movie-recommender"
+    ports:
+      - "8000:8000"
