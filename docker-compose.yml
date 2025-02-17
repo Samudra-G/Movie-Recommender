@@ -9,8 +9,6 @@ services:
       POSTGRES_DB: movie-recommender
     ports:
       - "5432:5432"
-    networks:
-      - movie-network
     volumes:
       - postgres_data:/var/lib/postgresql/data 
     healthcheck:
@@ -29,12 +27,6 @@ services:
       DATABASE_URL: "postgresql+psycopg://postgres:pgadmin4@db:5432/movie-recommender"
     ports:
       - "8000:8000"
-    networks:
-      - movie-network
-
-networks:
-  movie-network:
-    driver: bridge
 
 volumes:
   postgres_data:
