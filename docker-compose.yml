@@ -4,13 +4,14 @@ services:
     container_name: movie-recommender-db
     restart: always
     environment:
+      PGDATA: /var/lib/postgresql/data
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: pgadmin4
       POSTGRES_DB: movie-recommender
+      POSTGRES_PASSWORD: pgadmin4
     ports:
-      - "5432:5432"
+      - 5432:5432
     volumes:
-      - postgres_data:/var/lib/postgresql/data 
+      - postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
@@ -27,6 +28,7 @@ services:
       DATABASE_URL: "postgresql+psycopg://postgres:pgadmin4@db:5432/movie-recommender"
     ports:
       - "8000:8000"
+    restart: always
 
 volumes:
   postgres_data:
